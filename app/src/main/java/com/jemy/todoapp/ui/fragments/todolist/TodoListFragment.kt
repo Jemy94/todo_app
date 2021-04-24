@@ -40,13 +40,13 @@ class TodoListFragment : Fragment(R.layout.fragment_todo_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
+        setupFloatButtonClickListener()
         getTodoList()
         setSwipeLayoutAction()
         swipeToDelete()
     }
 
     private fun setupToolbar() {
-        setHasOptionsMenu(true)
         (requireActivity() as MainActivity).supportActionBar?.title = "Todo List"
         (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
@@ -107,7 +107,7 @@ class TodoListFragment : Fragment(R.layout.fragment_todo_list) {
                 ResourceState.SUCCESS -> {
                     todoSwipeLayout.isRefreshing = false
                     resources.data?.let { message ->
-                       toastLong(message)
+                        toastLong(message)
                         getTodoList()
                     }
                 }
@@ -137,21 +137,10 @@ class TodoListFragment : Fragment(R.layout.fragment_todo_list) {
         }).attachToRecyclerView(todoRecycler)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.actionAddTodo -> {
-                view?.findNavController()?.navigate(R.id.action_todoListFragment_to_addTodoFragment)
-                false
-            }
-            else -> {
-                super.onOptionsItemSelected(item)
-            }
+    private fun setupFloatButtonClickListener() {
+        addFloatButton.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_todoListFragment_to_addTodoFragment)
         }
-
     }
+
 }

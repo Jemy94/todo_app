@@ -27,6 +27,18 @@
             tools:listitem="@layout/item_todo" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addFloatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_padding_size_small"
+        android:layout_marginBottom="@dimen/margin_padding_size_medium"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
     <TextView
         android:id="@+id/addFirstTodoTextView"
         android:layout_width="wrap_content"

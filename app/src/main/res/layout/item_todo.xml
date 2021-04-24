@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    app:cardCornerRadius="@dimen/margin_padding_size_xxsmall"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_padding_size_xxsmall"
-    android:layout_height="wrap_content">
+    app:cardCornerRadius="@dimen/margin_padding_size_xxsmall">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_padding_size_small"
             android:layout_marginTop="@dimen/margin_padding_size_tiny"
+            android:maxLines="2"
             android:textColor="@color/md_grey_600"
             android:textSize="@dimen/text_size_micro"
             android:textStyle="normal"
@@ -45,9 +46,9 @@
             android:textColor="@color/md_grey_600"
             android:textSize="@dimen/text_size_micro"
             android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             tools:text="02:15" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
